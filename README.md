@@ -9,7 +9,7 @@ porción con su nombre (hebreo), territorio e información.
 
 ## 🔗 Links
 
-- **Sitio (producción):** https://israel-antiguo.vercel.app
+- **Sitio (producción):** https://tierra-de-israel.vercel.app
 - **Repo:** https://github.com/tommyhanono/tierra-de-israel
 - **Local (dev):** http://localhost:5181
 

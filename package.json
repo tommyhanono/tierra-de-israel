@@ -1,0 +1,30 @@
+{
+  "name": "tierra-de-israel",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "La repartición de la Tierra de Israel — experiencia scrollytelling (Feria de Torá). Vite + React + Tailwind v4 + R3F + GSAP + Lenis.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.18.0",
+    "gsap": "^3.13.0",
+    "lenis": "^1.1.18",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "three": "^0.171.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.10",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^4.3.4",
+    "tailwindcss": "^4.1.10",
+    "vite": "^6.0.7"
+  }
+}

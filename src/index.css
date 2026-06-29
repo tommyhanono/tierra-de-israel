@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+/* ---- Design tokens (Tailwind v4, CSS-first) ---- */
+@theme {
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink: #07090c;        /* tinta oscuro */
+  --color-ocean: #0a1e22;      /* fondo oceánico */
+  --color-offwhite: #f2f4f3;   /* texto principal */
+  --color-muted: #8aa0a3;      /* texto secundario apagado */
+  --color-mint: #5eead4;       /* reflejo cian (base 3D) */
+  --color-violet: #a78bfa;     /* reflejo violeta (base 3D) */
+
+  --color-gold: #e9c46a;       /* acento histórico */
+  --color-amber: #c8902e;      /* acento histórico oscuro */
+}
+
+html {
+  background-color: var(--color-ink);
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--color-offwhite);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Degradado oceánico de fondo a página completa */
+.bg-ocean-gradient {
+  background:
+    radial-gradient(120% 120% at 50% 0%, #0a1e22 0%, #07090c 55%, #07090c 100%);
+}
+
+/* Focus visible por teclado, consistente en toda la UI */
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ---- Mapa REAL 3D (viaje sobre el terreno) ---- */
+.tribes-map-tilt {
+  transform: perspective(1700px) rotateX(15deg) rotateZ(-2deg);
+  transform-style: preserve-3d;
+  filter: drop-shadow(0 40px 70px rgba(0, 0, 0, 0.6));
+}
+.map-cam {
+  transform-origin: 50% 50%;
+  will-change: transform;
+}
+.map-img {
+  /* contornos negros → dorado cálido; mares azules → tono cálido tenue */
+  filter: invert(1) sepia(1) saturate(1.7) hue-rotate(2deg) brightness(0.95) contrast(1.05);
+  opacity: 0.9;
+}
+.map-spot {
+  position: absolute;
+  width: 46%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 9999px;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(246, 221, 151, 0.4) 0%, rgba(246, 221, 151, 0.1) 42%, transparent 70%);
+  mix-blend-mode: screen;
+  transition: left 0.7s ease, top 0.7s ease;
+}
+.map-pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border: 0;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  transition: left 0.7s ease, top 0.7s ease;
+}
+.map-pin-dot {
+  display: block;
+  width: 9px;
+  height: 9px;
+  border-radius: 9999px;
+  background: rgba(246, 221, 151, 0.45);
+  box-shadow: 0 0 0 3px rgba(246, 221, 151, 0.1);
+  transition: all 0.4s ease;
+}
+.map-pin[data-on='true'] .map-pin-dot {
+  width: 15px;
+  height: 15px;
+  background: #f6dd97;
+  box-shadow: 0 0 18px 5px rgba(246, 221, 151, 0.85), 0 0 0 6px rgba(246, 221, 151, 0.18);
+}
+.map-pin-label {
+  position: absolute;
+  left: 50%;
+  bottom: 150%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  color: #f6dd97;
+  padding: 3px 11px;
+  border-radius: 9999px;
+  background: rgba(7, 9, 12, 0.9);
+  border: 1px solid rgba(246, 221, 151, 0.4);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+.map-pin[data-on='true'] .map-pin-label {
+  opacity: 1;
+}
+@media (max-width: 768px) {
+  .tribes-map-tilt {
+    transform: perspective(1400px) rotateX(10deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tribes-map-tilt {
+    transform: none;
+  }
+  .map-spot,
+  .map-pin {
+    transition: none;
+  }
+}
+
+/* Respeto total a prefers-reduced-motion a nivel CSS (complementa el JS) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

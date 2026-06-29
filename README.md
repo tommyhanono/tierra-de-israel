@@ -1,50 +1,51 @@
-# Israel Antiguo — Mapa interactivo
+# La repartición de la Tierra de Israel
 
-Mapa interactivo de **las doce tribus de Israel**. Tocás una región y, con
-animación, aparece un panel con dónde estaba y su historia. Construido sobre la
-base 3D premium [`nivel-3d`](../nivel-3d).
+Experiencia **scrollytelling** sobre las divisiones de la **Tierra de Israel** —
+las porciones que Yehoshúa repartió entre los hijos de Yaacov (Feria de Torá).
+Bajás con scroll y, sobre un **mapa real inclinado en 3D**, se va iluminando cada
+porción con su nombre (hebreo), territorio e información.
 
-**Stack:** Vite + React + Tailwind v4 (`@tailwindcss/vite`, sin PostCSS) · `gsap` + `@gsap/react` · capa 3D de ambiente con `three` · `@react-three/fiber` · `@react-three/drei`.
+**Stack:** Vite + React + Tailwind v4 (`@tailwindcss/vite`, sin PostCSS) · `gsap` + `@gsap/react` · `lenis` (scroll suave) · capa 3D de ambiente con `three` · `@react-three/fiber` · `@react-three/drei`.
 
-## 🔗 Link
+## 🔗 Links
 
+- **Sitio (producción):** https://israel-antiguo.vercel.app
+- **Repo:** https://github.com/tommyhanono/tierra-de-israel
 - **Local (dev):** http://localhost:5181
-- **Deploy:** _pendiente_ — al publicar (Vercel / Netlify / GitHub Pages), pegar aquí la URL.
 
-## Levantar el proyecto
+## Levantar en local
 
 ```bash
 cd ~/israel-antiguo
 PATH="$HOME/.local/node-v20.19.2-darwin-arm64/bin:$PATH" npm run dev
 ```
 
-## Qué trae
+## Cómo funciona
 
-- **Mapa estilizado** de las 12 tribus (SVG): Mediterráneo, Río Jordán, Mar de
-  Galilea y Mar Muerto como referencia. Cada región es un bloque clicable.
-- **Interacción**: al elegir una región se ilumina en dorado, las demás se
-  atenúan y entra (con GSAP) un **panel** con su ubicación y un **dato**.
-- **Accesible**: regiones navegables con `Tab` y `Enter`, foco visible, panel que
-  cierra con la ✕, `Escape` o tocando fuera (en móvil). Respeta `prefers-reduced-motion`.
-- **Ambiente 3D**: la perla iridiscente de la base queda como fondo atenuado.
-- **Tipografía**: Space Grotesk (display) + Inter (body); acento dorado histórico.
+- **Mapa real** de la repartición (contornos de dominio público), recoloreado en
+  dorado e inclinado en 3D. La "cámara" hace zoom a cada porción al scrollear y
+  un foco + etiqueta la resaltan.
+- **Una tarjeta por porción** con nombre en hebreo, significado, territorio,
+  descripción y un dato — en lenguaje de Torá.
+- **Scroll cinemático** con Lenis + GSAP; activación por `IntersectionObserver`.
+- Accesible (foco visible, `prefers-reduced-motion`) y responsive.
 
-## Personalizar el contenido
+## Contenido
 
-Todo el contenido vive en [`src/data/regions.js`](src/data/regions.js):
-nombre, posición del bloque en el mapa (`tile`), descripción (`blurb`) y `dato`.
-Editá ese archivo para cambiar textos, o pasá tu mapa/info y se ajusta.
+Todo vive en [`src/data/tribes.js`](src/data/tribes.js): nombre, hebreo,
+significado, territorio, `desc`, `dato`, posición en el mapa (`pos`) y `pending`
+(las porciones que todavía no tienen texto en el Doc se marcan en la app).
 
 ## Estructura
 
 ```
 src/
-  App.jsx                  # Estado de selección, layout, fondo 3D
-  data/regions.js          # Las 12 tribus (datos + posición en el mapa)
+  App.jsx                  # Intro + recorrido (mapa fijo + pasos) + cierre
+  data/tribes.js           # Las 12 porciones (+ Manasé dividido, Leví)
   components/
-    IsraelMap.jsx          # Mapa SVG, regiones clicables, selección
-    RegionInfo.jsx         # Panel de info (animado con GSAP)
+    TribesMap.jsx          # Mapa real + foco/pines + cámara GSAP
     Scene.jsx / Pearl.jsx  # Capa 3D de ambiente (de la base nivel-3d)
   hooks/useReducedMotion.js
   index.css                # Tailwind v4 + tokens (@theme)
+public/mapa-tribus.png     # Mapa de la repartición (dominio público)
 ```

@@ -22,14 +22,16 @@ export const TRIBES = [
   {
     id: 'zebulon', he: 'זְבוּלוּן', name: 'Zebulún', meaning: '“Morada / honor”',
     side: 'Oeste del Jordán', region: 'Baja Galilea, hacia el mar',
-    desc: null, dato: null,
-    pos: { x: 0.42, y: 0.28 }, pending: true,
+    desc: 'Mantenía una sociedad con Isajar: Zevulún se ocupaba del sustento y financiaba el estudio de la Torá de su hermano, uniendo el trabajo con el aprendizaje.',
+    dato: null,
+    pos: { x: 0.42, y: 0.28 }, pending: false,
   },
   {
     id: 'isacar', he: 'יִשָּׂשכָר', name: 'Isajar', meaning: '“Recompensa”',
     side: 'Oeste del Jordán', region: 'Valle de Jezreel',
-    desc: null, dato: null,
-    pos: { x: 0.50, y: 0.31 }, pending: true,
+    desc: 'Quinto hijo de Yaacov y Lea. Era conocida como la porción de los sabios y estudiosos de la Torá; sus miembros eran expertos en el calendario hebreo y las festividades. Mantenía una alianza con Zevulún, que financiaba su estudio de la Torá.',
+    dato: 'Representa la sabiduría, el conocimiento y el estudio dentro del pueblo de Israel.',
+    pos: { x: 0.50, y: 0.31 }, pending: false,
   },
   {
     id: 'manases-oeste', he: 'מְנַשֶּׁה', name: 'Menashé (Oeste)', meaning: '“El que hace olvidar”',
@@ -60,8 +62,8 @@ export const TRIBES = [
   {
     id: 'juda', he: 'יְהוּדָה', name: 'Yehudá', meaning: '“Alabanza”',
     side: 'Oeste del Jordán', region: 'El sur: Yerushaláim y Bet Léjem',
-    desc: 'Maljut Yehudá fue el reino que surgió tras la división del antiguo reino de Israel, con Yerushaláim como capital. Estaba formado por las porciones de Yehudá y Biniamín y fue gobernado por reyes descendientes de David; su centro era el Beit haMikdash (el Primer Templo de Yerushaláim).',
-    dato: 'Cayó ante Babel en el 586 a.e.c., que destruyó el Beit haMikdash y llevó a muchos al exilio.',
+    desc: 'Cuarto hijo de Yaacov y Lea. Fue la porción del liderazgo y la realeza: de ella descendieron el rey David y el rey Shelomó. Tras la división del reino formó el Reino de Yehudá (Maljut Yehudá), con Yerushaláim como capital y el Beit haMikdash como centro.',
+    dato: 'Su símbolo es el león; según la tradición, el Mashíaj descenderá de Yehudá. De esta porción proviene el nombre “judío” (Yehudí).',
     pos: { x: 0.42, y: 0.78 }, pending: false,
   },
   {

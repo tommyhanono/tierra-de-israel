@@ -42,15 +42,17 @@ export const TRIBES = [
   },
   {
     id: 'efrain', he: 'אֶפְרַיִם', name: 'Efráim', meaning: '“Fructífero”',
-    side: 'Oeste del Jordán', region: 'Montañas centrales',
-    desc: null, dato: null,
-    pos: { x: 0.40, y: 0.56 }, pending: true,
+    side: 'Oeste del Jordán', region: 'Centro de Kenáan — Shiló',
+    desc: 'Hijo de Yosef y nieto de Yaacov. Recibió un territorio importante en el centro de Kenáan, con lugares como Shiló, donde estuvo el Mishkán durante muchos años. Fue una de las porciones más fuertes e importantes de Israel y tuvo mucha influencia en la historia del pueblo judío.',
+    dato: 'Su nombre significa “fructífero” o “productivo”.',
+    pos: { x: 0.40, y: 0.56 }, pending: false,
   },
   {
-    id: 'dan', he: 'דָּן', name: 'Dan', meaning: '“Juzgó”',
-    side: 'Oeste del Jordán', region: 'Costa central; luego, extremo norte',
-    desc: null, dato: null,
-    pos: { x: 0.37, y: 0.34 }, pending: true,
+    id: 'dan', he: 'דָּן', name: 'Dan', meaning: '“Juzgar / hacer justicia”',
+    side: 'Oeste del Jordán', region: 'Centro de Kenáan; luego, extremo norte',
+    desc: 'Uno de los 12 hijos de Yaacov, hijo de Bilhá. Recibió tierras en la zona central de Kenáan, cerca de los territorios de Yehudá y Efráim. Con el tiempo, una parte de la porción se trasladó hacia el norte y conquistó la ciudad de Lais, que luego fue llamada Dan.',
+    dato: 'Su nombre significa “juzgar” o “hacer justicia”. Fue conocida por sus guerreros y por la defensa del pueblo de Israel.',
+    pos: { x: 0.37, y: 0.34 }, pending: false,
   },
   {
     id: 'benjamin', he: 'בִּנְיָמִין', name: 'Biniamín', meaning: '“Hijo de la mano derecha”',
@@ -95,10 +97,11 @@ export const TRIBES = [
     pos: { x: 0.65, y: 0.68 }, pending: false,
   },
   {
-    id: 'levi', he: 'לֵוִי', name: 'Leví', meaning: '“Unido”',
-    side: 'Sin territorio', region: '48 ciudades entre las porciones',
-    desc: null, dato: null,
-    pos: { x: 0.5, y: 0.5 }, pending: true, noTerritory: true,
+    id: 'levi', he: 'לֵוִי', name: 'Leví', meaning: '“Unido / acompañado”',
+    side: 'Sin territorio', region: 'Servicio en el Mishkán y el Beit haMikdash',
+    desc: 'Uno de los 12 hijos de Yaacov, hijo de Lea. No recibió una tierra propia como las demás porciones: fue elegida para servir a Hashem. Sus miembros se encargaban del trabajo en el Mishkán y luego en el Beit haMikdash, además de enseñar Torá y ayudar a los Cohanim en los servicios religiosos.',
+    dato: 'Su nombre significa “unido” o “acompañado”.',
+    pos: { x: 0.5, y: 0.5 }, pending: false, noTerritory: true,
   },
 ]
 
